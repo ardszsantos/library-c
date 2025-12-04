@@ -4,9 +4,9 @@
 #include <time.h>
 #include "./structs/usuarios/usuarios.h"
 #include "./structs/livros/livros.h"
+#include "./structs/emprestimos/emprestimos.h"
 #include "utils/user_functions.h"
 #include "utils/livro_functions.h"
-
 
 #define MAX_USUARIOS 100
 #define MAX_LIVROS 500
@@ -41,6 +41,15 @@ void menuLivros() {
     printf("1 - Cadastrar livro\n");
     printf("2 - Listar livros\n");
     printf("3 - Pesquisar livro\n");
+    printf("0 - Voltar\n");
+    printf("Escolha uma opção: ");
+}
+
+void menuEmprestimos() {
+    printf("\n=== EMPRÉSTIMOS ===\n");
+    printf("1 - Registrar empréstimo\n");
+    printf("2 - Listar empréstimos\n");
+    printf("3 - Devolver livro\n");
     printf("0 - Voltar\n");
     printf("Escolha uma opção: ");
 }
@@ -88,7 +97,19 @@ int main() {
                 break;
 
             case 3: // Empréstimos
-                printf("WIP - Empréstimos\n");
+                do {
+                    menuEmprestimos();
+                    scanf("%d", &subOpcao);
+                    getchar();
+
+                    switch(subOpcao) {
+                        case 1: registrarEmprestimo(); break;
+                        case 2: listarEmprestimos(); break;
+                        case 3: devolverEmprestimo(); break;
+                        case 0: break;
+                        default: printf("Opção inválida!\n");
+                    }
+                } while (subOpcao != 0);
                 break;
 
             case 4: // Relatórios

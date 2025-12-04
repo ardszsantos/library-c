@@ -6,5 +6,7 @@
 void cadastrarUsuario();
 void listarUsuarios();
 void pesquisarUsuario();
+int usuarioExiste(int matricula);
+
 
 #endif

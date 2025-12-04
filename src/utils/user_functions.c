@@ -65,3 +65,16 @@ void listarUsuarios() {
 void pesquisarUsuario() {
     // TODO: implementar busca por matrícula ou nome
 }
+
+int usuarioExiste(int matricula) {
+    Usuario array[MAX_USUARIOS];
+    int count = 0;
+    lerUsuarios(ARQUIVO_USUARIOS, array, &count);
+
+    for (int i = 0; i < count; i++) {
+        if (array[i].matricula == matricula)
+            return 1;
+    }
+
+    return 0;
+}

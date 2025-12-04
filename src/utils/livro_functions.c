@@ -241,3 +241,16 @@ void pesquisarLivro() {
             printf("Opção inválida!\n");
     }
 }
+
+Livro *buscarLivro(int codigo) {
+    static Livro array[MAX_LIVROS];
+    int count = 0;
+    lerLivros(ARQUIVO_LIVROS, array, &count);
+
+    for (int i = 0; i < count; i++) {
+        if (array[i].codigoLivro == codigo)
+            return &array[i];
+    }
+
+    return NULL;
+}

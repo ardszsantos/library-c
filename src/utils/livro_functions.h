@@ -6,5 +6,8 @@
 void cadastrarLivro();
 void listarLivros();
 void pesquisarLivro();
+Livro *buscarLivro(int codigo);
+
+
 
 #endif
